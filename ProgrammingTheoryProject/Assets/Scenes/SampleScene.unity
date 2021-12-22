@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 254961934}
   - component: {fileID: 254961933}
   - component: {fileID: 254961937}
+  - component: {fileID: 254961938}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -273,6 +274,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &254961938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254961932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac6d235708491841a942039f1a195fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 3
 --- !u!1 &479039148
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +365,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter shape name here...
+  m_text: Enter shape name here (from 3 to 8 characters)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -537,7 +551,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' Move / Stop'
+  m_text: Jump
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e8d4b3d47573e74994d0d2e54751a52, type: 2}
   m_sharedMaterial: {fileID: 3779034230168464726, guid: 4e8d4b3d47573e74994d0d2e54751a52, type: 2}
@@ -671,7 +685,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shape Selected : 1234567'
+  m_text: 'Shape Selected : '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4e8d4b3d47573e74994d0d2e54751a52, type: 2}
   m_sharedMaterial: {fileID: 3779034230168464726, guid: 4e8d4b3d47573e74994d0d2e54751a52, type: 2}
@@ -698,14 +712,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.1
+  m_fontSize: 55.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 20
   m_fontSizeMax: 70
   m_fontStyle: 32
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1186,7 +1200,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1420,7 +1434,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1340608939}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806116622}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: Jump
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1340608939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1658,20 +1684,32 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 5
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806116622}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: NameShape
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
@@ -1758,6 +1796,7 @@ GameObject:
   - component: {fileID: 1806116621}
   - component: {fileID: 1806116620}
   - component: {fileID: 1806116619}
+  - component: {fileID: 1806116622}
   m_Layer: 5
   m_Name: UIPannel
   m_TagString: Untagged
@@ -1851,6 +1890,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806116617}
   m_CullTransparentMesh: 1
+--- !u!114 &1806116622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806116617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5312ee8e59a30524e8ed86ae71a5f7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeName: {fileID: 627003932}
+  nameInput: {fileID: 1719457361}
 --- !u!1 &1829753249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,7 +1986,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1829753252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806116622}
+        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_MethodName: Greeting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1829753252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,7 +2047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1852298672}
   m_Layer: 5
-  m_Name: Move
+  m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
